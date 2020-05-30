@@ -1,0 +1,17 @@
+{
+  "name": "Timers",
+  "displayName": "Timers",
+  "expo": {
+    "name": "Timers",
+    "slug": "expo-template-bare",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
