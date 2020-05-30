@@ -1,36 +1,55 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, ScrollView } from 'react-native';
 
-const instructions = Platform.select({
-  ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
-  android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
-});
+import EditableTimer from  "./components/EditableTimer";
+import ToggleableTimerForm from "./components/ToggleableTimerForm";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
-      <Text style={styles.instructions}>To get started, edit App.js</Text>
-      <Text style={styles.instructions}>{instructions}</Text>
-    </View>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style = {styles.appContainer}>
+        <View style = {styles.titleContainer}>
+          <Text style = {styles.title}>Timers</Text>
+        </View>
+        <ScrollView style = {styles.timerList}>
+          {/* isOpen used by the child component to determine whether to render a “+” or TimerForm */}
+          <ToggleableTimerForm isOpen = {false} />
+          <EditableTimer 
+            id = "1"
+            title = "Mow the lawn"
+            project = "House Chores"
+            elapsed = "8986300"
+            isRunning
+          /> 
+          <EditableTimer
+            id="2"
+            title="Bake squash"
+            project="Kitchen Chores"
+            elapsed="3890985"
+            editFormOpen
+          />
+        </ScrollView>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  appContainer: {
+    flex: 1
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  titleContainer: {
+    paddingTop: 35,
+    paddingBottom: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#D6D7DA"
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
   },
-});
+  timerList: {
+    paddingBottom: 15,
+  }
+})
