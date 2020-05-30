@@ -1,7 +1,6 @@
 Static Version of App is ready. Some variations in components : 
 1. ```<ToggleableTimerForm isOpen = {false} />
-    <EditableTimer editFormOpen />```
-
+     <EditableTimer editFormOpen />```
 ![Screenshot_20200530-105414](https://user-images.githubusercontent.com/57283161/83320478-91d0d380-a265-11ea-83b4-8dd8d21a1a39.jpg)
 2. ```<ToggleableTimerForm isOpen = {false} />
     <EditableTimer />```
